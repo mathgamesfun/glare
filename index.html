@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glare Gaming Interface</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(to right, #0f1623, #132131);
+            color: white;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #1b243c;
+            padding: 20px 0;
+            border-radius: 0 45px 45px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+            transition: width 0.4s;
+        }
+
+        .logo img {
+            width: 130px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .search-bar {
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(9, 8, 21, 0.6);
+            border-radius: 50px;
+            padding: 5px 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transition: opacity 0.3s;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: white;
+            background: transparent;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .menu-item {
+            width: 50px;
+            height: 50px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: #3a3a3a;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .menu-item img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 165, 0, 0.2);
+        }
+
+        .main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-cards {
+    display: grid;
+    grid-template-columns: repeat(7, 2fr); /* Creates 7 equal columns */
+    gap: 10px;
+    transition: opacity 0.2s;
+    grid-auto-rows: auto; /* Ensures the rows have the height of the tallest element */
+}
+
+
+        .game-card {
+    position: relative;
+    background: #040625;
+    border-radius: 10px;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #2a2a2a;
+}
+
+.game-card img {
+    width: 100%;   
+    height: 100%; 
+    object-fit: cover;
+}
+
+.game-card .info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.74) 50%, rgba(0, 0, 0, 0));
+    color: white;
+    padding: 5px;
+    font-size: 11px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.game-card:hover .info {
+    opacity: 1;
+}
+.game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .info .title {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        
+        .game-card:hover .library-icon {
+            display: block;
+        }
+
+        .iframe-container {
+    display: none;
+    position: absolute;
+    height: 600px; 
+    width: 80%; 
+    max-width: 1000px; 
+    top: 50%; 
+    left: 50%;
+    margin-left: -33%; 
+    transform: translateY(-50%);
+    background: #000518;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+
+
+        
+
+.fullscreen-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background: url('https://icon-library.com/images/fullscreen-icon/fullscreen-icon-28.jpg') no-repeat center, #ffffff41;
+    background-size: 80%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.fullscreen-btn:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.genre-btn {
+    background-color: #1f29619b;
+    border: none;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    margin: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.genre-btn:hover {
+    background-color: #303d5b;
+}
+
+.genre-btn.selected {
+    background-color: #475d75;
+    color: white;
+    transform: scale(1.1);
+}
+
+.genre-btn.selected:hover {
+    background-color: #3654758b;
+}
+
+.genre-btn:focus {
+    outline: none;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><img src="glare.png" alt="Glare Logo"></div>
+        <div class="search-bar"><input type="text" id="searchInput" placeholder="Search..."></div>
+    </div>
+    <div class="main">
+        <div>
+            <button class="genre-btn" data-genre="popular">Popular</button>
+            <button class="genre-btn" data-genre="sandbox">Sandbox</button>
+            <button class="genre-btn" data-genre="racing">Racing</button>
+            <button class="genre-btn" data-genre="shooter">Shooter</button>
+            <button class="genre-btn" data-genre="simulation">Simulation</button>
+            <button class="genre-btn" data-genre="retro">Retro</button>
+        </div>
+        <div class="game-cards" id="gameCards">
+            <div class="game-card" data-title="Slope" data-iframe="https://slopeio.org/slope.embed" data-genre="sandbox">
+                <div class="library-icon"></div>
+                <img src="https://gamepluto.com/images/game/slope/slope-icon.jpg" alt="Slope" />
+                <div class="info">
+                    <div class="title">Slope</div><div>Released: 2014</div><div>Author: Rob Kay</div>
+                </div>
+            </div>
+            <div class="game-card" data-title="Stunt Master" data-iframe="https://stenunblocked.github.io/stunt-master/city-car-driving-stunt-master/index.html" data-genre="racing">
+                <div class="library-icon"></div>
+                <img src="https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/7/0/3/70335ba4f98392bb95cda37ae8ce71e0d3b9ff92.png" alt="Driving Simulator" />
+                <div class="info">
+                    <div class="title">Stunt Master</div><div>Released: 2019</div><div>Author: BoneCracker Games</div>
+                </div>
+            </div>
+            <div class="game-card" data-title="Shell Shockers" data-iframe="https://freegames.io/splash/shell-shockers" data-genre="shooter">
+                <div class="library-icon"></div>
+                <img src="https://pbs.twimg.com/profile_images/1456048577839435781/GiJJhpA3_400x400.jpg" alt="Shell Shockers" />
+                <div class="info">
+                    <div class="title">Shell Shockers</div><div>Released: 2017</div><div>Author: Blue Wizard Digital</div>
+                </div>
+            </div>
+            <div class="game-card" data-title="Bike Simulator" data-iframe="https://unblocked-games.s3.amazonaws.com/games/bicycle-simulator/unblocked.html" data-genre="simulation">
+                <div class="library-icon"></div>
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRZFQeN73XY00aWZb_hWx96wnhXSzwzl2N6PD0l1SGA7jjHX8EO" alt="Bike Simulator" />
+                <div class="info">
+                    <div class="title">Bike Simulator</div><div>Released: 2018</div><div>Author: FREEZENOVA</div>
+                </div>
+            </div>
+            <div class="game-card" data-title="Minecraft" data-iframe="https://sd592g.github.io/zj684od4lfg/" data-genre="popular">
+                <div class="library-icon"></div>
+                <img src="https://static.wikia.nocookie.net/logopedia/images/f/f9/Minecraft_Bedrock_icon.svg/revision/latest/scale-to-width-down/250?cb=20230924021517" alt="Minecraft" />
+                <div class="info">
+                    <div class="title">Minecraft</div><div>Released: 2009</div><div>Author: Mojang</div>
+                </div>
+            </div>
+            <div class="game-card" data-title="Bad Time Simulator" data-iframe="https://jcw87.github.io/c2-sans-fight/" data-genre="simulation">
+                <div class="library-icon"></div>
+                <img src="https://i.kinja-img.com/image/upload/c_fill,h_264,pg_1,q_80,w_470/e79715828c6f95f715214e1703a4c16b.jpg" alt="Bad Time Simulator"/>
+                <div class="info">
+                    <div class="title">Bad Time Simulator</div><div>Released: 2015</div><div>Author: Toby Fox</div>
+                </div>
+            </div>
+            <div class="game-card" data-title="1v1.LOL" data-iframe="https://classroom6x.gitlab.io/1v1-lol/" data-genre="shooter">
+                <div class="library-icon"></div>
+                <img src="https://img.utdstc.com/icon/983/22a/98322a3b2be892eed31589906ffd949b68bcccc9a21ba562987965b5ec6bc6de:200" alt="1v1.LOL"/>
+                <div class="info">
+                    <div class="title">1v1.LOL</div><div>Released: 2020</div><div>Author: JustPlay</div>
+        </div>
+            </div>
+            <div class="game-card" data-title="Infinite Craft" data-iframe="https://infinite-craft.net/" data-genre="sandbox">
+                <div class="library-icon"></div>
+                <img src="https://infinitecraftonline.io//data/image/game/screenshot_113.jpg" alt="Infinite Craft"/>
+                <div class="info">
+                    <div class="title">Infinite Craft</div><div>Released: 2024</div><div>Author: Neal Agarwal</div>
+        </div>
+    </div>
+    <div class="game-card" data-title="Smash Karts" data-iframe="https://smashkarts.io/?source=nowgg&nggPlayUrl=https%3A%2F%2Fnow.gg%2Fapps%2Ftall-team%2F51304%2Fsmash-karts.html" data-genre="racing">
+        <div class="library-icon"></div>
+        <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=1200,height=1200,fit=cover,f=png/9c9e529b14731be871b07b89660bbc2a.png" alt="Smash Karts"/>
+        <div class="info">
+            <div class="title">Smash Karts</div><div>Released: 2020</div><div>Author: Tall Team</div>
+</div>
+            </div>
+        </div>
+        
+    
+        <div class="iframe-container" id="iframeContainer">
+            <iframe id="gameIframe" src="" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+            <button class="fullscreen-btn" id="fullscreenBtn"></button>
+        </div>
+    </div>    
+    </div>    
+</body>
+<script>
+    // Get DOM elements
+const searchInput = document.getElementById('searchInput');
+const gameCards = document.querySelectorAll('.game-card');
+const sidebar = document.querySelector('.sidebar');
+const iframeContainer = document.getElementById('iframeContainer');
+const gameIframe = document.getElementById('gameIframe');
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+const searchBar = document.querySelector('.search-bar');
+const genreButtons = document.querySelectorAll('.genre-btn');
+
+// FPS display
+let fpsDisplay = null;
+
+// Disable interactions (fade effect)
+function disableInteractions(disable) {
+    genreButtons.forEach(button => {
+        button.style.transition = 'opacity 0.3s ease';
+        button.style.opacity = disable ? '0' : '1';
+        button.disabled = disable;
+    });
+
+    gameCards.forEach(card => card.style.pointerEvents = disable ? 'none' : 'auto');
+    searchBar.style.pointerEvents = disable ? 'none' : 'auto';
+}
+
+// Show iframe and disable interactions
+function showIframe(src) {
+    iframeContainer.style.display = 'block';
+    gameIframe.src = src;
+    disableInteractions(true);
+}
+
+// Hide iframe and re-enable interactions
+function hideIframe() {
+    iframeContainer.style.display = 'none';
+    gameIframe.src = '';
+    disableInteractions(false);
+}
+
+// Search functionality
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    gameCards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        card.style.display = title.includes(query) ? 'block' : 'none';
+    });
+});
+
+// Add event listener to genre buttons
+document.querySelectorAll('.genre-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        button.classList.toggle('selected');
+        filterGames();
+    });
+});
+
+function filterGames() {
+    const selectedGenres = Array.from(document.querySelectorAll('.genre-btn.selected')).map(button => button.getAttribute('data-genre'));
+
+    // Get all game cards
+    const gameCards = document.querySelectorAll('.game-card');
+
+    gameCards.forEach(card => {
+        const gameGenres = card.getAttribute('data-genre').split(','); // Split genres by comma
+        const isMatch = selectedGenres.every(genre => gameGenres.includes(genre));
+
+        // Show or hide based on genre match
+        if (selectedGenres.length === 0 || isMatch) {
+            card.style.display = 'block'; // Show game card
+        } else {
+            card.style.display = 'none'; // Hide game card
+        }
+    });
+}
+
+
+// FPS Display
+function showFPS() {
+    let lastFrameTime = performance.now();
+    let frameCount = 0;
+
+    fpsDisplay = document.createElement('div');
+    fpsDisplay.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 15px;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 5px 10px;
+        border-radius: 8px;
+        color: white;
+        z-index: 9999;
+    `;
+    document.body.appendChild(fpsDisplay);
+
+    function updateFPS() {
+        const now = performance.now();
+        frameCount++;
+        if (now - lastFrameTime >= 1000) {
+            fpsDisplay.innerText = `FPS: ${frameCount}`;
+            frameCount = 0;
+            lastFrameTime = now;
+        }
+        requestAnimationFrame(updateFPS);
+    }
+
+    updateFPS();
+}
+
+// Game card click event to show iframe
+gameCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const iframeSrc = card.getAttribute('data-iframe');
+
+        sidebar.style.width = '80px';
+        sidebar.querySelector('.logo img').style.width = '60px';
+        searchBar.style.opacity = '0';
+        iframeContainer.style.display = 'block';
+        gameIframe.src = iframeSrc;
+
+        document.querySelector('.game-cards').style.opacity = '0';
+        disableInteractions(true);
+
+        if (!fpsDisplay) {
+            showFPS();
+        }
+    });
+});
+
+// Logo click to reset layout
+document.querySelector('.logo img').addEventListener('click', () => {
+    sidebar.style.width = '200px';
+    sidebar.querySelector('.logo img').style.width = '130px';
+    searchBar.style.opacity = '1';
+    document.querySelector('.game-cards').style.opacity = '1';
+    iframeContainer.style.display = 'none';
+    if (fpsDisplay) {
+        fpsDisplay.remove();
+        fpsDisplay = null;
+    }
+    gameIframe.src = '';
+    disableInteractions(false);
+});
+
+// Fullscreen button click event
+fullscreenBtn.addEventListener('click', () => {
+    const requestFullscreen = gameIframe.requestFullscreen ||
+        gameIframe.mozRequestFullScreen ||
+        gameIframe.webkitRequestFullscreen ||
+        gameIframe.msRequestFullscreen;
+
+    if (requestFullscreen) {
+        requestFullscreen.call(gameIframe);
+    }
+});
+</script>
+</body>
+</html>
