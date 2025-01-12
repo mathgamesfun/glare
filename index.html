@@ -136,6 +136,7 @@
     color: white;
     padding: 5px;
     font-size: 11px;
+    font-weight: 400;
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s;
@@ -232,6 +233,32 @@
     outline: none;
 }
 
+.sidebar button {
+    display: none;
+    background-color: #0d1323;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 5px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+.sidebar button img {
+    width: 100%; /* Make the image fit the button */
+    height: 100%;
+    border-radius: 10px; /* Match button border radius */
+    object-fit: cover; /* Ensure image covers the button area without distortion */
+}
+
+.sidebar button:hover {
+    background-color: rgba(0, 0, 0, 0.634);
+}
+
+
 
 
 
@@ -240,6 +267,8 @@
 <body>
     <div class="sidebar">
         <div class="logo"><img src="glare.png" alt="Glare Logo"></div>
+        <button id="btn1">Button 1</button>
+        <button id="btn2">Button 2</button>
         <div class="search-bar"><input type="text" id="searchInput" placeholder="Search..."></div>
     </div>
     <div class="main">
@@ -371,6 +400,34 @@
                 <div class="title">Breaking the Bank</div><div>Released: 2008</div><div>Author: Newgrounds</div>
             </div>
         </div>
+        <div class="game-card" data-title="Downtown Mafia 1930s" data-iframe="https://games.crazygames.com/en_US/downtown-1930s-mafia/index.html?v=1.316" data-genre="simulation">
+            <div class="library-icon"></div>
+            <img src="https://imgs.crazygames.com/downtown-1930s-mafia_16x9/20241205085827/downtown-1930s-mafia_16x9-cover?auto=format%2Ccompress&q=75&cs=strip&ch=DPR&w=446" alt="Downtown Mafia 1930s"/>
+            <div class="info">
+                <div class="title">Downtown Mafia 1930s</div><div>Released: 2021</div><div>Author: Starry</div>
+            </div>
+        </div>
+        <div class="game-card" data-title="Happy Wheels" data-iframe="https://sreekar617.github.io/hw/index.html" data-genre="platformer">
+            <div class="library-icon"></div>
+            <img src="https://play-lh.googleusercontent.com/SV8RsV5udSeeONjatT5SwleP6lzV6PjtNPs2VvyohJXWSG9fFLNOfslDEHbpDN337wQ=w240-h480-rw" alt="Happy Wheels"/>
+            <div class="info">
+                <div class="title">Happy Wheels</div><div>Released: 2010</div><div>Author: Toaljerkface</div>
+            </div>
+        </div>
+        <div class="game-card" data-title="Crossy Road" data-iframe="https://historyedu1308.github.io/g77/crossy-road/" data-genre="sandbox">
+            <div class="library-icon"></div>
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/71/Crossy_Road_icon.jpeg" alt="Crossy Road"/>
+            <div class="info">
+                <div class="title">Crossy Road</div><div>Released: 2014</div><div>Author: POKI</div>
+            </div>
+        </div>
+        <div class="game-card" data-title="Baldi's Basic's" data-iframe="https://io-games-2025.github.io/casual-games/baldis-basics/" data-genre="sandbox">
+            <div class="library-icon"></div>
+            <img src="https://a.silvergames.com/j/b/baldis-basics-in-education-and-learning.jpg" alt="Breaking the Bank"/>
+            <div class="info">
+                <div class="title">Baldi's Basic's</div><div>Released: 2018</div><div>Author: MacVG</div>
+            </div>
+        </div>
         </div>
     </div>
         
@@ -384,7 +441,7 @@
 </body>
 <script>
     // Get DOM elements
-const searchInput = document.getElementById('searchInput');
+    const searchInput = document.getElementById('searchInput');
 const gameCards = document.querySelectorAll('.game-card');
 const sidebar = document.querySelector('.sidebar');
 const iframeContainer = document.getElementById('iframeContainer');
@@ -392,9 +449,40 @@ const gameIframe = document.getElementById('gameIframe');
 const fullscreenBtn = document.getElementById('fullscreenBtn');
 const searchBar = document.querySelector('.search-bar');
 const genreButtons = document.querySelectorAll('.genre-btn');
+const btn1 = document.createElement('button');
+const btn2 = document.createElement('button');
 
 // FPS display
 let fpsDisplay = null;
+
+// Button setup
+btn1.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/4671/4671159.png" alt="Change Ratio">';
+btn1.style.display = 'none';
+btn1.classList.add('sidebar-button');
+sidebar.appendChild(btn1);
+
+// Predefined ratios and styles
+const ratios = [
+    { width: '80%', height: '600px', left: '50%', marginLeft: '-33%' },  
+    { width: '60%', height: '600px', left: '50%', marginLeft: '-26.5%' }, 
+    { width: '40%', height: '600px', left: '50%', marginLeft: '-16.5%' },  
+];
+
+let currentIndex = 0;
+
+btn1.addEventListener('click', () => {
+    // Cycle through the ratios
+    currentIndex = (currentIndex + 1) % ratios.length;
+
+    // Apply the new ratio
+    const { width, height, left, marginLeft } = ratios[currentIndex];
+    iframeContainer.style.transition = 'width 0.5s ease, height 0.5s ease, margin-left 0.5s ease';
+    iframeContainer.style.width = width;
+    iframeContainer.style.height = height;
+    iframeContainer.style.left = left;
+    iframeContainer.style['margin-left'] = marginLeft;
+});
+
 
 // Disable interactions (fade effect)
 function disableInteractions(disable) {
@@ -413,6 +501,8 @@ function showIframe(src) {
     iframeContainer.style.display = 'block';
     gameIframe.src = src;
     disableInteractions(true);
+    btn1.style.display = 'block';
+    btn2.style.display = 'block';
 }
 
 // Hide iframe and re-enable interactions
@@ -420,6 +510,8 @@ function hideIframe() {
     iframeContainer.style.display = 'none';
     gameIframe.src = '';
     disableInteractions(false);
+    btn1.style.display = 'none';
+    btn2.style.display = 'none';
 }
 
 // Search functionality
@@ -433,41 +525,23 @@ searchInput.addEventListener('input', () => {
 
 document.querySelectorAll('.genre-btn').forEach(button => {
     button.addEventListener('click', () => {
-        // Check if the clicked button is already selected
         const isAlreadySelected = button.classList.contains('selected');
-        
-        // Remove 'selected' class from all buttons
         document.querySelectorAll('.genre-btn').forEach(btn => btn.classList.remove('selected'));
-        
-        // Toggle the clicked button only if it wasn't already selected
         if (!isAlreadySelected) {
             button.classList.add('selected');
         }
-        
         filterGames();
     });
 });
 
-
 function filterGames() {
     const selectedGenres = Array.from(document.querySelectorAll('.genre-btn.selected')).map(button => button.getAttribute('data-genre'));
-
-    // Get all game cards
-    const gameCards = document.querySelectorAll('.game-card');
-
     gameCards.forEach(card => {
-        const gameGenres = card.getAttribute('data-genre').split(','); // Split genres by comma
+        const gameGenres = card.getAttribute('data-genre').split(',');
         const isMatch = selectedGenres.every(genre => gameGenres.includes(genre));
-
-        // Show or hide based on genre match
-        if (selectedGenres.length === 0 || isMatch) {
-            card.style.display = 'block'; // Show game card
-        } else {
-            card.style.display = 'none'; // Hide game card
-        }
+        card.style.display = selectedGenres.length === 0 || isMatch ? 'block' : 'none';
     });
 }
-
 
 // FPS Display
 function showFPS() {
@@ -507,16 +581,11 @@ function showFPS() {
 gameCards.forEach(card => {
     card.addEventListener('click', () => {
         const iframeSrc = card.getAttribute('data-iframe');
-
         sidebar.style.width = '80px';
         sidebar.querySelector('.logo img').style.width = '60px';
         searchBar.style.opacity = '0';
-        iframeContainer.style.display = 'block';
-        gameIframe.src = iframeSrc;
-
+        showIframe(iframeSrc);
         document.querySelector('.game-cards').style.opacity = '0';
-        disableInteractions(true);
-
         if (!fpsDisplay) {
             showFPS();
         }
@@ -529,13 +598,11 @@ document.querySelector('.logo img').addEventListener('click', () => {
     sidebar.querySelector('.logo img').style.width = '130px';
     searchBar.style.opacity = '1';
     document.querySelector('.game-cards').style.opacity = '1';
-    iframeContainer.style.display = 'none';
+    hideIframe();
     if (fpsDisplay) {
         fpsDisplay.remove();
         fpsDisplay = null;
     }
-    gameIframe.src = '';
-    disableInteractions(false);
 });
 
 // Fullscreen button click event
@@ -544,11 +611,11 @@ fullscreenBtn.addEventListener('click', () => {
         gameIframe.mozRequestFullScreen ||
         gameIframe.webkitRequestFullscreen ||
         gameIframe.msRequestFullscreen;
-
     if (requestFullscreen) {
         requestFullscreen.call(gameIframe);
     }
 });
+
 </script>
 </body>
 </html>
