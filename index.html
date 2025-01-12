@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glare Gaming Interface</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Figtree', sans-serif;
+            font-weight: 500;
             background-image: linear-gradient(to right, #0f1623, #132131);
             color: white;
             display: flex;
@@ -55,6 +57,7 @@
             border: none;
             outline: none;
             font-size: 16px;
+            font-family: 'Figtree', sans-serif !important;
             color: white;
             background: transparent;
         }
@@ -104,6 +107,7 @@
         .game-card {
     position: relative;
     background: #040625;
+    font-family: 'Figtree', sans-serif !important;
     border-radius: 10px;
     height: 150px;
     width: 150px;
@@ -126,6 +130,7 @@
 .game-card .info {
     position: absolute;
     bottom: 0;
+    font-family: 'Figtree', sans-serif !important;
     width: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.74) 50%, rgba(0, 0, 0, 0));
     color: white;
@@ -199,6 +204,7 @@
     background-color: #1f29619b;
     border: none;
     color: #e0e0e0;
+    font-family: 'Figtree', sans-serif !important;
     padding: 10px 20px;
     margin: 5px;
     margin-bottom: 10px;
@@ -238,10 +244,10 @@
     </div>
     <div class="main">
         <div>
-            <button class="genre-btn" data-genre="popular">Popular</button>
             <button class="genre-btn" data-genre="sandbox">Sandbox</button>
             <button class="genre-btn" data-genre="racing">Racing</button>
             <button class="genre-btn" data-genre="shooter">Shooter</button>
+            <button class="genre-btn" data-genre="platformer">Platformer</button>
             <button class="genre-btn" data-genre="simulation">Simulation</button>
             <button class="genre-btn" data-genre="retro">Retro</button>
         </div>
@@ -274,7 +280,7 @@
                     <div class="title">Bike Simulator</div><div>Released: 2018</div><div>Author: FREEZENOVA</div>
                 </div>
             </div>
-            <div class="game-card" data-title="Minecraft" data-iframe="https://sd592g.github.io/zj684od4lfg/" data-genre="popular">
+            <div class="game-card" data-title="Minecraft" data-iframe="https://sd592g.github.io/zj684od4lfg/" data-genre="sandbox">
                 <div class="library-icon"></div>
                 <img src="https://static.wikia.nocookie.net/logopedia/images/f/f9/Minecraft_Bedrock_icon.svg/revision/latest/scale-to-width-down/250?cb=20230924021517" alt="Minecraft" />
                 <div class="info">
@@ -309,7 +315,64 @@
             <div class="title">Smash Karts</div><div>Released: 2020</div><div>Author: Tall Team</div>
 </div>
             </div>
+            <div class="game-card" data-title="Mr Racer - Car Racing" data-iframe="https://html5.gamedistribution.com/rvvASMiM/a42cb23aca9647b3840f8a7dca61fde5/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.play-games.com%2Fgame%2F37345%2Fmr-racer-car-racing.html&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5wbGF5LWdhbWVzLmNvbS9nYW1lLzM3MzQ1L21yLXJhY2VyLWNhci1yYWNpbmcuaHRtbCIsInBhcmVudERvbWFpbiI6InBsYXktZ2FtZXMuY29tIiwidG9wRG9tYWluIjoicGxheS1nYW1lcy5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" data-genre="racing">
+                <div class="library-icon"></div>
+                <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/972a0e3dabb998d2fb8fce785e2c1fa4.jfif" alt="Mr Racer"/>
+                <div class="info">
+                    <div class="title">Mr Racer</div><div>Released: 2023</div><div>Author: Chennai Studios</div>
         </div>
+    </div>
+    <div class="game-card" data-title="Drift Hunters" data-iframe="https://tbg95.github.io/drift-hunters/game.html" data-genre="racing">
+        <div class="library-icon"></div>
+        <img src="https://drift-hunters.com/upload/imgs/options/drift-hunter.png" alt="Drift Hunters"/>
+        <div class="info">
+            <div class="title">Drift Hunters</div><div>Released: 2017</div><div>Author: Studionum43</div>
+</div>
+</div>
+<div class="game-card" data-title="Geometry Dash" data-iframe="https://geometrylite.github.io/" data-genre="platformer">
+    <div class="library-icon"></div>
+    <img src="https://games.lol/wp-content/uploads/2019/07/geometry-dash-lite-free-full_version-150x150.jpg.webp" alt="Geometry Dash"/>
+    <div class="info">
+        <div class="title">Geometry Dash</div><div>Released: 2013</div><div>Author: RobTop Games</div>
+</div>
+        </div>
+        <div class="game-card" data-title="Subway Surfers" data-iframe="https://ug17.github.io/play/Subway-Surfers/" data-genre="platformer">
+            <div class="library-icon"></div>
+            <img src="https://images.dwncdn.net/images/t_app-icon-l/p/78f72bd7-8b4c-4236-80d7-2d82d52f814f/251683548/2095_4-77819145-imgingest-2107467363934742291.png" alt="Subway Surfers"/>
+            <div class="info">
+                <div class="title">Subway Surfers</div><div>Released: 2012</div><div>Author: SYBO</div>
+        </div>
+                </div>
+        <div class="game-card" data-title="Frog.io" data-iframe="https://html5.gamedistribution.com/01081bf5cb844319a58504964416f71a/" data-genre="sandbox">
+            <div class="library-icon"></div>
+            <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/ef1a1df39a99be4fb9c7232430416f79.png" alt="Frog.io"/>
+            <div class="info">
+                <div class="title">Frog.io</div><div>Released: 2021</div><div>Author: Mao Games</div>
+        </div>
+    </div>
+    <div class="game-card" data-title="Run 3" data-iframe="https://tbg95.github.io/run3/" data-genre="retro">
+        <div class="library-icon"></div>
+        <img src="https://e.snmc.io/lk/lv/x/a38e8c4d9fc64a3d862e5f6858ecfec4/10934781" alt="Frog.io"/>
+        <div class="info">
+            <div class="title">Run 3</div><div>Released: 2014</div><div>Author: Coolmath Games</div>
+        </div>
+    </div>
+        <div class="game-card" data-title="Friday Night Funkin" data-iframe="https://tbg95.github.io/friday-night-funkin/game.html" data-genre="other">
+            <div class="library-icon"></div>
+            <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=1200,height=1200,fit=cover,f=png/0cd0c8bc4dc15c069dba7ccfb6809f6d.png" alt="FNF"/>
+            <div class="info">
+                <div class="title">Friday Night Funkin</div><div>Released: 2020</div><div>Author: Ninjamuffin99</div>
+            </div>
+        </div>
+        <div class="game-card" data-title="Breaking the Bank" data-iframe="https://advanced-channeler.02.gz-associates.com/?s=?url%3D%252Fflash%252FHenryStick_BreakingTheBank.swf&t=tam-flash-ruffle" data-genre="other">
+            <div class="library-icon"></div>
+            <img src="https://i0.wp.com/gaamess.com/wp-content/uploads/2022/01/breaking-the-bank-1.jpg?fit=512%2C512&quality=80&ssl=1&resize=200%2C200" alt="Breaking the Bank"/>
+            <div class="info">
+                <div class="title">Breaking the Bank</div><div>Released: 2008</div><div>Author: Newgrounds</div>
+            </div>
+        </div>
+        </div>
+    </div>
         
     
         <div class="iframe-container" id="iframeContainer">
@@ -368,13 +431,23 @@ searchInput.addEventListener('input', () => {
     });
 });
 
-// Add event listener to genre buttons
 document.querySelectorAll('.genre-btn').forEach(button => {
     button.addEventListener('click', () => {
-        button.classList.toggle('selected');
+        // Check if the clicked button is already selected
+        const isAlreadySelected = button.classList.contains('selected');
+        
+        // Remove 'selected' class from all buttons
+        document.querySelectorAll('.genre-btn').forEach(btn => btn.classList.remove('selected'));
+        
+        // Toggle the clicked button only if it wasn't already selected
+        if (!isAlreadySelected) {
+            button.classList.add('selected');
+        }
+        
         filterGames();
     });
 });
+
 
 function filterGames() {
     const selectedGenres = Array.from(document.querySelectorAll('.genre-btn.selected')).map(button => button.getAttribute('data-genre'));
