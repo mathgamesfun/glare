@@ -3,265 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glare Gaming Interface</title>
+    <title>Glare</title>
+    <link rel="icon" href="GG.png" type="/GG">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Figtree', sans-serif;
-            font-weight: 500;
-            background-image: linear-gradient(to right, #0f1623, #132131);
-            color: white;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .sidebar {
-            width: 200px;
-            background: #1b243c;
-            padding: 20px 0;
-            border-radius: 0 45px 45px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-            transition: width 0.4s;
-        }
-
-        .logo img {
-            width: 130px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.4s ease-in-out;
-        }
-
-        .search-bar {
-            width: 70%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(9, 8, 21, 0.6);
-            border-radius: 50px;
-            padding: 5px 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-            transition: opacity 0.3s;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            font-family: 'Figtree', sans-serif !important;
-            color: white;
-            background: transparent;
-        }
-
-        .search-bar input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .menu-item {
-            width: 50px;
-            height: 50px;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: #3a3a3a;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .menu-item img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .menu-item:hover {
-            background: rgba(255, 165, 0, 0.2);
-        }
-
-        .main {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.game-cards {
-    display: grid;
-    grid-template-columns: repeat(7, 2fr); /* Creates 7 equal columns */
-    gap: 10px;
-    transition: opacity 0.2s;
-    grid-auto-rows: auto; /* Ensures the rows have the height of the tallest element */
-}
-
-
-        .game-card {
-    position: relative;
-    background: #040625;
-    font-family: 'Figtree', sans-serif !important;
-    border-radius: 10px;
-    height: 150px;
-    width: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: #2a2a2a;
-}
-
-.game-card img {
-    width: 100%;   
-    height: 100%; 
-    object-fit: cover;
-}
-
-.game-card .info {
-    position: absolute;
-    bottom: 0;
-    font-family: 'Figtree', sans-serif !important;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.74) 50%, rgba(0, 0, 0, 0));
-    color: white;
-    padding: 5px;
-    font-size: 11px;
-    font-weight: 400;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.game-card:hover .info {
-    opacity: 1;
-}
-.game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-        }
-
-
-        .info .title {
-            font-size: 15px;
-            font-weight: bold;
-        }
-        
-        .game-card:hover .library-icon {
-            display: block;
-        }
-
-        .iframe-container {
-    display: none;
-    position: absolute;
-    height: 600px; 
-    width: 80%; 
-    max-width: 1000px; 
-    top: 50%; 
-    left: 50%;
-    margin-left: -33%; 
-    transform: translateY(-50%);
-    background: #000518;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-    pointer-events: auto;
-    z-index: 10;
-}
-
-
-
-        
-
-.fullscreen-btn {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    background: url('https://icon-library.com/images/fullscreen-icon/fullscreen-icon-28.jpg') no-repeat center, #ffffff41;
-    background-size: 80%;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-}
-
-.fullscreen-btn:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.genre-btn {
-    background-color: #1f29619b;
-    border: none;
-    color: #e0e0e0;
-    font-family: 'Figtree', sans-serif !important;
-    padding: 10px 20px;
-    margin: 5px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.genre-btn:hover {
-    background-color: #303d5b;
-}
-
-.genre-btn.selected {
-    background-color: #475d75;
-    color: white;
-    transform: scale(1.1);
-}
-
-.genre-btn.selected:hover {
-    background-color: #3654758b;
-}
-
-.genre-btn:focus {
-    outline: none;
-}
-
-.sidebar button {
-    display: none;
-    background-color: #0d1323;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    margin: 5px 0;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 1s;
-}
-
-.sidebar button img {
-    width: 100%; /* Make the image fit the button */
-    height: 100%;
-    border-radius: 10px; /* Match button border radius */
-    object-fit: cover; /* Ensure image covers the button area without distortion */
-}
-
-.sidebar button:hover {
-    background-color: rgba(0, 0, 0, 0.634);
-}
-
-
-
-
-
+        body{margin:0;padding:0;font-family:'Figtree',sans-serif;font-weight:500;background-image:linear-gradient(to right,#0f1623,#132131);color:white;display:flex;height:100vh;overflow:hidden}
+        .sidebar{width:200px;background:#1b243c;padding:20px 0;border-radius:0 45px 45px 0;display:flex;flex-direction:column;align-items:center;box-shadow:2px 0 10px rgba(0,0,0,.5);transition:.4s;width:auto;}
+        .logo img{width:130px;margin-bottom:10px;cursor:pointer;transition:.4s}
+        .search-bar{width:70%;display:flex;justify-content:center;align-items:center;background:rgba(9,8,21,.6);border-radius:50px;font: 'Figtree', sans-serif;padding:5px 10px;box-shadow:0 4px 10px rgba(0,0,0,.2);position:relative;transition:.3s}
+        .search-bar input{width:100%;padding:10px 15px;border-radius:20px;font-family: 'Figtree', sans-serif;border:none;outline:none;font-size:16px;color:white;background:transparent}
+        .search-bar input::placeholder{color:rgba(255,255,255,.6)}
+        .menu-item{width:50px;height:50px;margin:10px 0;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#3a3a3a;cursor:pointer;transition:.3s}
+        .menu-item img{width:30px;height:30px}
+        .menu-item:hover{background:rgba(255,165,0,.2)}
+        .main{flex:1;padding:20px;display:flex;flex-direction:column}
+        .game-cards{display:grid;grid-template-columns:repeat(7,4fr);gap:10px;margin-top:5px;max-height:4000px;overflow-y:auto;padding-right:10px;transition:.2s;grid-auto-rows:auto}
+        .game-card{position:relative;background:#040625;font-family:'Figtree',sans-serif;border-radius:10px;height:150px;width:150px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.3);overflow:hidden;cursor:pointer;transition:.3s;background:#2a2a2a}
+        .game-card img{width:100%;height:100%;object-fit:cover}
+        .game-card .info{position:absolute;bottom:0;width:100%;background:linear-gradient(to top,rgba(0,0,0,.74) 50%,rgba(0,0,0,0));color:white;padding:5px;font-size:11px;text-align:center;opacity:0;transition:.3s}
+        .game-card:hover .info{opacity:1}
+        .game-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+        .info .title{font-size:15px;font-weight:bold}
+        .game-card:hover .library-icon{display:block}
+        .iframe-container{display:none;position:absolute;height:600px;width:80%;max-width:1000px;top:50%;left:50%;margin-left:-33%;transform:translateY(-50%);background:#000518;border-radius:15px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.7);pointer-events:auto;z-index:10}
+        .fullscreen-btn{position:absolute;right:20px;bottom:20px;width:40px;height:40px;padding:10px;background:url('https://icon-library.com/images/fullscreen-icon/fullscreen-icon-28.jpg') no-repeat center,#ffffff41;background-size:80%;border:none;border-radius:8px;cursor:pointer;transition:box-shadow .3s}
+        .fullscreen-btn:hover{box-shadow:0 4px 10px rgba(0,0,0,.2)}
+        .genre-btn{background-color:#1f29619b;border:none;font-family: 'Figtree', sans-serif;color:#e0e0e0;padding:10px 20px;margin:5px;font-size:14px;cursor:pointer;border-radius:10px;transition:.3s}
+        .genre-btn:hover{background-color:#303d5b}
+        .genre-btn.selected{background-color:#475d75;color:white;transform:scale(1.1)}
+        .genre-btn.selected:hover{background-color:#3654758b}
+        .genre-btn:focus{outline:none}
+        .sidebar button{display:none;background-color:#0d1323;color:white;border:none;width:40px;height:40px;padding:0;margin:5px 0;border-radius:10px;cursor:pointer;transition:background 1s}
+        .sidebar button img{width:100%;height:100%;border-radius:10px;object-fit:cover}
+        .sidebar button:hover{background-color:rgba(0,0,0,.634)}
     </style>
 </head>
 <body>
@@ -281,7 +55,7 @@
             <button class="genre-btn" data-genre="retro">Retro</button>
         </div>
         <div class="game-cards" id="gameCards">
-            <div class="game-card" data-title="Slope" data-iframe="https://slopeio.org/slope.embed" data-genre="sandbox">
+            <div class="game-card" data-title="Slope" data-iframe="https://ccported.github.io/sl/" data-genre="sandbox">
                 <div class="library-icon"></div>
                 <img src="https://gamepluto.com/images/game/slope/slope-icon.jpg" alt="Slope" />
                 <div class="info">
@@ -311,7 +85,7 @@
             </div>
             <div class="game-card" data-title="Minecraft" data-iframe="https://sd592g.github.io/zj684od4lfg/" data-genre="sandbox">
                 <div class="library-icon"></div>
-                <img src="https://static.wikia.nocookie.net/logopedia/images/f/f9/Minecraft_Bedrock_icon.svg/revision/latest/scale-to-width-down/250?cb=20230924021517" alt="Minecraft" />
+                <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/1/12/Minecraft_Launcher_MS_Icon.png/revision/latest?cb=20230618110121" alt="Minecraft" />
                 <div class="info">
                     <div class="title">Minecraft</div><div>Released: 2009</div><div>Author: Mojang</div>
                 </div>
@@ -372,7 +146,7 @@
                 <div class="title">Subway Surfers</div><div>Released: 2012</div><div>Author: SYBO</div>
         </div>
                 </div>
-        <div class="game-card" data-title="Frog.io" data-iframe="https://html5.gamedistribution.com/01081bf5cb844319a58504964416f71a/" data-genre="sandbox">
+        <div class="game-card" data-title="Frog.io" data-iframe="https://html5.gamedistribution.com/rvvASMiM/01081bf5cb844319a58504964416f71a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fgamedistribution.com%2Fgames%2Ffrog.io&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzAxMDgxYmY1Y2I4NDQzMTlhNTg1MDQ5NjQ0MTZmNzFhLz9nZF9zZGtfcmVmZXJyZXJfdXJsPWh0dHBzOi8vZ2FtZWRpc3RyaWJ1dGlvbi5jb20vZ2FtZXMvZnJvZy5pbyIsInBhcmVudERvbWFpbiI6ImdhbWVkaXN0cmlidXRpb24uY29tIiwidG9wRG9tYWluIjoiZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" data-genre="sandbox">
             <div class="library-icon"></div>
             <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/ef1a1df39a99be4fb9c7232430416f79.png" alt="Frog.io"/>
             <div class="info">
@@ -428,6 +202,44 @@
                 <div class="title">Baldi's Basic's</div><div>Released: 2018</div><div>Author: MacVG</div>
             </div>
         </div>
+        <div class="game-card" data-title="Cookie Clicker" data-iframe="https://cookie-clickeronline.github.io/file/" data-genre="racing">
+            <div class="library-icon"></div>
+            <img src="https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok" alt="Cookie Clicker"/>
+            <div class="info">
+                <div class="title">Cookie Clicker</div><div>Released: 2013</div><div>Author: DashNet</div>
+    </div>
+        </div>
+        <div class="game-card" data-title="Block Blast" data-iframe="https://gnhustgames.github.io/block-blast/" data-genre="sandbox">
+            <div class="library-icon"></div>
+            <img src="https://play-lh.googleusercontent.com/R0qgNDYYHbRhw6JFsdEbDMqONplEvJx0m0W9wzYVvY3eNF1c2rfBWYjQxW0sLEzFe1E" alt="Block Blast"/>
+            <div class="info">
+                <div class="title">Block Blast</div><div>Released: 2022</div><div>Author: Hungry Studio</div>
+        </div>
+        </div>
+        <div class="game-card" data-title="Police Traffic" data-iframe="https://www.onlinegames.io/games/2021/unity/police-traffic/index.html" data-genre="racing">
+            <div class="library-icon"></div>
+            <img src="https://play-lh.googleusercontent.com/8Pt7dLy6dzmu8nSZfHt9BiEAte5xEaCguItBMQwoACo04IswmAUtdkrwW2eDePWL_Gc=w240-h480-rw" alt="Police Traffic"/>
+            <div class="info"><div class="title">Police Traffic</div><div>Released: 2021</div><div>Author: FREEZENOVA</div>
+            </div>
+        </div> 
+    <div class="game-card" data-title="YOUR_GAME_TITLE" data-iframe="YOUR_GAME_URL" data-genre="YOUR_GAME_GENRE">
+        <div class="library-icon"></div>
+        <img src="YOUR_IMAGE_URL" alt="YOUR_GAME_TITLE"/>
+        <div class="info"><div class="title" contenteditable="true">YOUR_GAME_TITLE</div><div contenteditable="true">Released: YOUR_RELEASE_YEAR</div><div contenteditable="true">Author: YOUR_AUTHOR_NAME</div>
+        </div>
+    </div>   
+    <div class="game-card" data-title="YOUR_GAME_TITLE" data-iframe="YOUR_GAME_URL" data-genre="YOUR_GAME_GENRE">
+        <div class="library-icon"></div>
+        <img src="YOUR_IMAGE_URL" alt="YOUR_GAME_TITLE"/>
+        <div class="info"><div class="title" contenteditable="true">YOUR_GAME_TITLE</div><div contenteditable="true">Released: YOUR_RELEASE_YEAR</div><div contenteditable="true">Author: YOUR_AUTHOR_NAME</div>
+        </div>           
+    </div>
+    <div class="game-card" data-title="YOUR_GAME_TITLE" data-iframe="YOUR_GAME_URL" data-genre="YOUR_GAME_GENRE">
+        <div class="library-icon"></div>
+        <img src="YOUR_IMAGE_URL" alt="YOUR_GAME_TITLE"/>
+        <div class="info"><div class="title" contenteditable="true">YOUR_GAME_TITLE</div><div contenteditable="true">Released: YOUR_RELEASE_YEAR</div><div contenteditable="true">Author: YOUR_AUTHOR_NAME</div>
+        </div>
+    </div>
         </div>
     </div>
         
@@ -436,6 +248,7 @@
             <iframe id="gameIframe" src="" frameborder="0" style="width: 100%; height: 100%;"></iframe>
             <button class="fullscreen-btn" id="fullscreenBtn"></button>
         </div>
+    </div>
     </div>    
     </div>    
 </body>
@@ -464,8 +277,8 @@ sidebar.appendChild(btn1);
 // Predefined ratios and styles
 const ratios = [
     { width: '80%', height: '600px', left: '50%', marginLeft: '-33%' },  
-    { width: '60%', height: '600px', left: '50%', marginLeft: '-26.5%' }, 
-    { width: '40%', height: '600px', left: '50%', marginLeft: '-16.5%' },  
+    { width: '56%', height: '600px', left: '50%', marginLeft: '-26.5%' }, 
+    { width: '40%', height: '600px', left: '50%', marginLeft: '-17%' },  
 ];
 
 let currentIndex = 0;
