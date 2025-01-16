@@ -33,8 +33,8 @@
         .genre-btn.selected{background-color:#475d75;color:white;transform:scale(1.1)}
         .genre-btn.selected:hover{background-color:#3654758b}
         .genre-btn:focus{outline:none}
-        .sidebar button{display:none;background-color:#0d1323;color:white;border:none;width:40px;height:40px;padding: 3px;;margin:5px 0;border-radius:10px;cursor:pointer;transition:background 1s}
-        .sidebar button img{width:100%;height:100%;border-radius:10px;object-fit:cover}
+        .sidebar button{display:none;background-color:#0d1323;color:white;border:none;width:40px;height:40px;padding: 3.5px;;margin:5px 0;border-radius:10px;cursor:pointer;}
+        .sidebar button img{width:100%;height:100%;border-radius:10px;object-fit:cover;}
         .sidebar button:hover{background-color:rgba(0,0,0,.634)}
     </style>
 </head>
@@ -246,6 +246,48 @@
         <div class="info"><div class="title">Stack</div><div>Released: 2020</div><div>Author: fatgarfield777</div>
         </div>
     </div>
+        <div class="game-card" data-title="Animal Area" data-iframe="https://2-playergames.github.io/g74/class-274/" data-genre="retro">
+            <div class="library-icon"></div>
+            <img src="https://play-lh.googleusercontent.com/wMBqpl8mv85NV_rjpX-BKY2sEz7Tt4F43HHur1jdaVR4Xygh1IzDqNmLvjg0qzx7nVs" alt="Animal Arena"/>
+            <div class="info"><div class="title">Animal Arena</div><div>Released: 2024</div><div>Author: Adventure Islands</div>
+            </div>
+        </div>
+        <div class="game-card" data-title="Grow Up the Cats" data-iframe="https://2-playergames.github.io/g77/class-47/" data-genre="retro">
+            <div class="library-icon"></div>
+            <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/8ede081188f35f310b10394bbc445e47.png" alt="Grow Up the Cats"/>
+            <div class="info"><div class="title">Grow Up the Cats</div><div>Released: 2023</div><div>Author: Uplo Media</div>
+            </div>
+        </div>
+        <div class="game-card" data-title="Moto X3M" data-iframe="https://motox3munblocked.github.io/" data-genre="racing">
+            <div class="library-icon"></div>
+            <img src="https://cdn6.aptoide.com/imgs/7/6/0/760a62f3110301452ad0527495934bb0_icon.jpg" alt="Moto X3M"/>
+            <div class="info"><div class="title">Moto X3M</div><div>Released: 2015</div><div>Author: Mad Puffers</div>
+            </div>
+        </div>
+        <div class="game-card" data-title="Moto X3M Spooky Land" data-iframe="https://htmlxm.github.io/h/moto-x3m-spooky-land/" data-genre="racing">
+            <div class="library-icon"></div>
+            <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/3f8a297822df891a1c158576b6461014.png" alt="Moto X3M Spooky Land"/>
+            <div class="info"><div class="title">Moto X3M Spooky Land</div><div>Released: 2016</div><div>Author: Mad Puffers</div>
+            </div>
+        </div>
+        <div class="game-card" data-title="Moto X3M Winter" data-iframe="https://htmlxm.github.io/h/moto-x3m-winter/" data-genre="racing">
+            <div class="library-icon"></div>
+            <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/c28eee5a5924e8a70afb2c1490d9b571.jpeg" alt="Moto X3M Winter"/>
+            <div class="info"><div class="title">Moto X3M Winter</div><div>Released: 2016</div><div>Author: Mad Puffers</div>
+        </div>
+    </div>
+    <div class="game-card" data-title="Moto X3M Pool Party" data-iframe="https://smashkartsonlinegames.github.io/v/moto-x3m-pool-party/" data-genre="racing">
+        <div class="library-icon"></div>
+        <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=1200,height=1200,fit=cover,f=png/0235b530eec4f17ad60137f6b245a988.jpeg" alt="Moto X3M Pool Party"/>
+        <div class="info"><div class="title">Moto X3M Pool Party</div><div>Released: 2017</div><div>Author: Mad Puffers</div>
+    </div>
+</div>
+<div class="game-card" data-title="Sniper Gun" data-iframe="https://ubg365.github.io/sniper-gun-shooting/play.html" data-genre="shooter">
+    <div class="library-icon"></div>
+    <img src="https://store-images.s-microsoft.com/image/apps.26717.13926798438094759.140677b9-316e-4de3-9372-2ef401471545.d94cb4f7-44e3-4314-93a2-b574d0284216?mode=scale&q=90&h=300&w=300" alt="Sniper Gun"/>
+    <div class="info"><div class="title">Sniper Gun</div><div>Released: 2019</div><div>Author: UBG</div>
+</div>
+    </div>
     </div>
         </div>
     </div>
@@ -280,6 +322,10 @@ btn1.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/4671/4671159.
 btn1.style.display = 'none';
 btn1.classList.add('sidebar-button');
 sidebar.appendChild(btn1);
+btn2.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/6160/6160536.png" alt="Glare Button">';
+btn2.style.display = 'none';
+btn2.classList.add('sidebar-button');
+sidebar.appendChild(btn2);
 
 // Predefined ratios and styles
 const ratios = [
