@@ -23,7 +23,7 @@
         .game-card .info{position:absolute;bottom:0;width:100%;background:linear-gradient(to top,rgba(0,0,0,.74) 50%,rgba(0,0,0,0));color:white;padding:5px;font-size:11px;text-align:center;opacity:0;transition:.3s}
         .game-card:hover .info{opacity:1}
         .game-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
-        .info .title{font-size:15px;font-weight:bold}
+        .info .title{font-size:14.5px;font-weight:bold}
         .game-card:hover .library-icon{display:block}
         .iframe-container{display:none;position:absolute;height:600px;width:80%;max-width:1000px;top:50%;left:50%;margin-left:-33%;transform:translateY(-50%);background:#000518;border-radius:15px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.7);pointer-events:auto;z-index:10}
         .fullscreen-btn{position:absolute;right:20px;bottom:20px;width:40px;height:40px;padding:10px;background:url('https://icon-library.com/images/fullscreen-icon/fullscreen-icon-28.jpg') no-repeat center,#ffffff41;background-size:80%;border:none;border-radius:8px;cursor:pointer;transition:box-shadow .3s}
@@ -48,11 +48,14 @@
     <div class="main">
         <div>
             <button class="genre-btn" data-genre="sandbox">Sandbox</button>
+            <button class="genre-btn" data-genre="action">Action</button>
             <button class="genre-btn" data-genre="racing">Racing</button>
             <button class="genre-btn" data-genre="shooter">Shooter</button>
             <button class="genre-btn" data-genre="platformer">Platformer</button>
             <button class="genre-btn" data-genre="simulation">Simulation</button>
             <button class="genre-btn" data-genre="retro">Retro</button>
+            <button class="genre-btn" data-genre="utilities">Utilities</button>
+            <button class="genre-btn" data-genre="other">Other</button>
         </div>
         <div class="game-cards" id="gameCards">
             <div class="game-card" data-title="Slope" data-iframe="https://ug17.github.io/play/Slope/" data-genre="sandbox">
@@ -146,7 +149,7 @@
                 <div class="title">Subway Surfers</div><div>Released: 2012</div><div>Author: SYBO</div>
         </div>
                 </div>
-        <div class="game-card" data-title="Frog.io" data-iframe="https://html5.gamedistribution.com/rvvASMiM/01081bf5cb844319a58504964416f71a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fgamedistribution.com%2Fgames%2Ffrog.io&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzAxMDgxYmY1Y2I4NDQzMTlhNTg1MDQ5NjQ0MTZmNzFhLz9nZF9zZGtfcmVmZXJyZXJfdXJsPWh0dHBzOi8vZ2FtZWRpc3RyaWJ1dGlvbi5jb20vZ2FtZXMvZnJvZy5pbyIsInBhcmVudERvbWFpbiI6ImdhbWVkaXN0cmlidXRpb24uY29tIiwidG9wRG9tYWluIjoiZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" data-genre="sandbox">
+        <div class="game-card" data-title="Frog.io" data-iframe="https://html5.gamedistribution.com/rvvASMiM/01081bf5cb844319a58504964416f71a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fgamedistribution.com%2Fgames%2Ffrog.io&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzAxMDgxYmY1Y2I4NDQzMTlhNTg1MDQ5NjQ0MTZmNzFhLz9nZF9zZGtfcmVmZXJyZXJfdXJsPWh0dHBzOi8vZ2FtZWRpc3RyaWJ1dGlvbi5jb20vZ2FtZXMvZnJvZy5pbyIsInBhcmVudERvbWFpbiI6ImdhbWVkaXN0cmlidXRpb24uY29tIiwidG9wRG9tYWluIjoiZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" data-genre="action">
             <div class="library-icon"></div>
             <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/ef1a1df39a99be4fb9c7232430416f79.png" alt="Frog.io"/>
             <div class="info">
@@ -202,7 +205,7 @@
                 <div class="title">Baldi's Basic's</div><div>Released: 2018</div><div>Author: MacVG</div>
             </div>
         </div>
-        <div class="game-card" data-title="Cookie Clicker" data-iframe="https://cookie-clickeronline.github.io/file/" data-genre="racing">
+        <div class="game-card" data-title="Cookie Clicker" data-iframe="https://cookie-clickeronline.github.io/file/" data-genre="action">
             <div class="library-icon"></div>
             <img src="https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok" alt="Cookie Clicker"/>
             <div class="info">
@@ -230,7 +233,7 @@
     </div>   
     <div class="game-card" data-title="Super Mario Land" data-iframe="https://bobzgames.github.io/GBA/launcher.html#marioland" data-genre="retro">
         <div class="library-icon"></div>
-        <img src="https://img.youtube.com/vi/PG1q5q0spQE/0.jpg" alt="Super Mario Land"/>
+        <img src="https://cdn2.steamgriddb.com/thumb/f306269688e3f58d59edecbc68feba60.jpg" alt="Super Mario Land"/>
         <div class="info"><div class="title">Super Mario Land</div><div>Released: 1989</div><div>Author: Nintendo</div>
         </div>           
     </div>
@@ -286,6 +289,132 @@
     <div class="library-icon"></div>
     <img src="https://store-images.s-microsoft.com/image/apps.26717.13926798438094759.140677b9-316e-4de3-9372-2ef401471545.d94cb4f7-44e3-4314-93a2-b574d0284216?mode=scale&q=90&h=300&w=300" alt="Sniper Gun"/>
     <div class="info"><div class="title">Sniper Gun</div><div>Released: 2019</div><div>Author: UBG</div>
+</div>
+</div>
+<div class="game-card" data-title="Sausage Flip" data-iframe="https://23azostore.github.io/s6/sausage-flip/" data-genre="sandbox">
+    <div class="library-icon"></div>
+    <img src="https://www.metacritic.com/a/img/catalog/provider/6/12/6-1-704197-52.jpg" alt="Sausage Flip"/>
+    <div class="info"><div class="title">Sausage Flip</div><div>Released: 2019</div><div>Author: MADBOX</div>
+</div>
+</div>
+<div class="game-card" data-title="Ruffle" data-iframe="https://nativegames.net/cdn/ruffle/index.html" data-genre="utilities">
+    <div class="library-icon"></div>
+    <img src="https://images.sftcdn.net/images/t_app-icon-m/p/74ac306e-214e-40ee-963e-f1b8ee379f27/1693778373/ruffle-download.png" alt="Ruffle"/>
+    <div class="info"><div class="title">Ruffle</div><div>Released: 2025</div><div>Author: Adobe</div>
+</div>
+</div>
+<div class="game-card" data-title="Flappy Bird" data-iframe="https://nativegames.net/cdn/flappy-bird/index.html" data-genre="sandbox">
+    <div class="library-icon"></div>
+    <img src="https://content.instructables.com/F4Z/P9T2/HWFLPMUZ/F4ZP9T2HWFLPMUZ.jpg?auto=webp" alt="Flappy Bird"/>
+    <div class="info"><div class="title">Flappy Bird</div><div>Released: 2013</div><div>Author: nguyen</div>
+</div>
+</div>
+<div class="game-card" data-title="Cut the Rope" data-iframe="https://nativegames.net/cdn/ctr/index.html" data-genre="sandbox">
+    <div class="library-icon"></div>
+    <img src="https://cdn.jim-nielsen.com/ios/512/cut-the-rope-2021-11-18.png?rf=1024" alt="Cut the Rope"/>
+    <div class="info"><div class="title">Cut the Rope</div><div>Released: 2010</div><div>Author: ZeptoLab</div>
+</div>
+</div>
+<div class="game-card" data-title="Cut the Rope: Time Travel" data-iframe="https://smashkartsonlinegames.github.io/v88/cut-the-rope-time-travel/" data-genre="sandbox">
+    <div class="library-icon"></div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ZryujN7Mokprl5Nv8Wpz2OzL9f_Qcvtr1MkHMu1DuUaDC7tcfdnHtsOF6h78bLkkQqA&usqp=CAU" alt="Cut the Rope: Time Travel"/>
+    <div class="info"><div class="title">Cut the Rope: Time Travel</div><div>Released: 2011</div><div>Author: ZeptoLab</div>
+</div>
+</div>
+<div class="game-card" data-title="Fruit Ninja" data-iframe="https://emulatoros.github.io/gfile/fruitninja/" data-genre="action">
+    <div class="library-icon"></div>
+    <img src="https://play-lh.googleusercontent.com/iRlGmvtJ524J-gAGdJJchMv-MH-9AuG80TAx8Rv8q3lObiI7kLVZrEvjVOM-yw3BBH4" alt="Fruit Ninja"/>
+    <div class="info"><div class="title">Fruit Ninja</div><div>Released: 2010</div><div>Author: Halfbrick Studios</div>
+</div>
+</div>
+<div class="game-card" data-title="Jetpack Joyride" data-iframe="https://emulatoros.github.io/gfile/jetpackjoyride/" data-genre="action">
+    <div class="library-icon"></div>
+    <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/d5d34cb9ce7b617b93338982aa0958ab.png" alt="Jetpack Joyride"/>
+    <div class="info"><div class="title">Jetpack Joyride</div><div>Released: 2011</div><div>Author: Halfbrick Studios</div>
+</div>
+</div>
+<div class="game-card" data-title="Pou" data-iframe="https://ubg98.github.io/Pou/" data-genre="other">
+    <div class="library-icon"></div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHo02XNamwxiAMqa1dR4BzBcVmycL3IG9mbw&s" alt="Pou"/>
+    <div class="info"><div class="title">Pou</div><div>Released: 2012</div><div>Author: PS Games</div>
+</div>
+</div>
+<div class="game-card" data-title="Grand Vegas Simulator" data-iframe="https://html5.gamedistribution.com/a85399dd2ee24da984b9a7aa031b4a60/?gd_sdk_referrer_url=https%3A%2F%2Fwww.y8.com%2Fgames%2Fgrand_vegas_simulator&key=y8&value=default" data-genre="simulation">
+    <div class="library-icon"></div>
+    <img src="https://www.roundgames.net/wp-content/uploads/thumbs/custom/G/Grand-Vegas-Simulator-Game.jpg" alt="Grand Vegas Simulator"/>
+    <div class="info"><div class="title">Grand Vegas Simulator</div><div>Released: 2022</div><div>Author: No Outlinks</div>
+</div>
+</div>
+<div class="game-card" data-title="Madness: Sherrif's Compound" data-iframe="https://html5.gamedistribution.com/18e4d3589cc944b89baea65f7d7074e2/?gd_sdk_referrer_url=https%3A%2F%2Fwww.y8.com%2Fgames%2Fmadness_sherrif_s_compound&key=y8&value=default" data-genre="shooter">
+    <div class="library-icon"></div>
+    <img src="https://kbhgames.com/wp-content/uploads/2024/09/madness-sherrifs-compound-1.jpg" alt="Madness: Sherrif's Compound"/>
+    <div class="info"><div class="title">Madness: Sherrif's Compound</div><div>Released: 2024</div><div>Author: Newgrounds</div>
+</div>
+</div>
+<div class="game-card" data-title="Sonic the Hedgehog" data-iframe="https://f.kbhgames.com/emujs/play.php?c=segaGG&f=sonic.gen" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://preview.redd.it/on-this-day-in-1991-sonic-the-hedgehog-was-released-on-sega-v0-y5594dcowr7b1.jpg?width=640&crop=smart&auto=webp&s=038a8364b09bd3e97afbdfa3cec4b47c8a44fbbd" alt="Sonic the Hedgehog"/>
+    <div class="info"><div class="title">Sonic the Hedgehog</div><div>Released: 1991</div><div>Author: Sega</div>
+</div>
+</div>
+<div class="game-card" data-title="Sonic the Hedgehog 2" data-iframe="https://f.kbhgames.com/emujs/play.php?c=segaGG&f=Sonic%20The%20Hedgehog%202.gen" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://info.sonicretro.org/images/5/53/Sonic2_2013_icon.png" alt="Sonic the Hedgehog 2"/>
+    <div class="info"><div class="title">Sonic the Hedgehog 2</div><div>Released: 1992</div><div>Author: Sega</div>
+</div>
+</div>
+<div class="game-card" data-title="Sonic the Hedgehog 3" data-iframe="https://f.kbhgames.com/emujs/play.php?c=segaGG&f=sonic3.gen" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/icon/ef4e3b775c934dada217712d76f3d51f.png" alt="Sonic the Hedgehog 3"/>
+    <div class="info"><div class="title">Sonic the Hedgehog 3</div><div>Released: 1994</div><div>Author: Sega</div>
+</div>
+</div>
+<div class="game-card" data-title="Sonic the Hedgehog: Save the Moon" data-iframe="https://f.kbhgames.com/emujs/play.php?c=segaGG&f=sonic-the-hedgehog-save-the-moon-demo2.bin" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://cdn.vox-cdn.com/thumbor/9H57oNUqcSt2gu4zYPwJYPSv3Fg=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/19705961/Sonic_Mania.jpg" alt="Sonic the Hedgehog: Save the Moon"/>
+    <div class="info"><div class="title">Sonic the Hedgehog: Save the Moon</div><div>Released: 2024</div><div>Author: Brickheads</div>
+</div>
+</div>
+<div class="game-card" data-title="Super Mario Bros." data-iframe="https://f.kbhgames.com/emujs/play.php?c=nes&f=Super%20Mario%20Bros.%20(E).nes" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/494bdf0e804f8f8e9a9df53b5ffee344.jpg" alt="Super Mario Bros."/>
+    <div class="info"><div class="title">Super Mario Bros.</div><div>Released: 1985</div><div>Author: Nintendo</div>
+</div>
+</div>
+<div class="game-card" data-title="Super Mario World" data-iframe="https://f.kbhgames.com/emujs/play.php?c=snes&f=Super%20Mario%20World%20(U).smc" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://i.redd.it/mbn50vmvx0fa1.jpg" alt="Super Mario World"/>
+    <div class="info"><div class="title">Super Mario World</div><div>Released: 1990</div><div>Author: Nintendo</div>
+</div>
+</div>
+<div class="game-card" data-title="New Super Mario Land" data-iframe="https://f.kbhgames.com/emujs/play.php?c=snes&f=New_Super_Mario_Land_J.zip" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/589551086038a12bd6cc7fab58767f08.png" alt="New Super Mario Land"/>
+    <div class="info"><div class="title">New Super Mario Land</div><div>Released: 1989</div><div>Author: Nintendo</div>
+</div>
+</div>
+<div class="game-card" data-title="The Binding of Isaac" data-iframe="https://f.kbhgames.com/RS/game.php?r=//f.kbhgames.com/2011/10/binding-of-issac.swf&w=800&h=600&warnsupport=true" data-genre="action">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/74e56fee02096dc9621feb003f70e07f.jpg" alt="The Binding of Isaac"/>
+    <div class="info"><div class="title">The Binding of Isaac</div><div>Released: 2011</div><div>Author: Edmund McMillen</div>
+</div>
+</div>
+<div class="game-card" data-title="Fix-It Felix Jr." data-iframe="https://f.kbhgames.com/emujs/play.php?c=segaGG&f=FixItFelixJr_AirwalkStudios.zip" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/icon_thumb/6d81df16fca504b6fb9280b11d2b0ae0.png" alt="Fix-It Felix Jr."/>
+    <div class="info"><div class="title">Fix-It Felix Jr.</div><div>Released: 1981</div><div>Author: Disney</div>
+</div>
+</div>
+<div class="game-card" data-title="Nip for Speed" data-iframe="https://kdata1.com/2024/02/nip-for-speed/" data-genre="simulation">
+    <div class="library-icon"></div>
+    <img src="https://kbhgames.com/wp-content/uploads/2024/02/Nip-For-Speed.jpg" alt="Nip for Speed"/>
+    <div class="info"><div class="title">Nip for Speed</div><div>Released: 2024</div><div>Author: Itch</div>
+</div>
+</div>
+<div class="game-card" data-title="Doom: Classic Collection" data-iframe="https://f.kbhgames.com/RS/game.php?r=//f.kbhgames.com/2018/swf/DoomGame.swf&w=800&h=500&warnsupport=true" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/62c237e40c008cda8c221a4d1231f790.jpg" alt="Doom: Classic Collection"/>
+    <div class="info"><div class="title">Doom: Classic Collection</div><div>Released: 1993</div><div>Author: id Software</div>
 </div>
     </div>
     </div>
