@@ -7,7 +7,7 @@
     <link rel="icon" href="GG.png" type="/GG">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
-        body{margin:0;padding:0;font-family:'Figtree',sans-serif;font-weight:500;background-image:linear-gradient(to right,#0f1623,#132131);color:white;display:flex;height:100vh;overflow:hidden}
+        body{margin:0;padding:0;font-family:'Figtree',sans-serif;font-weight:500;background-image:linear-gradient(to right,#0f1623,#17293d);color:white;display:flex;height:100vh;overflow:hidden}
         .sidebar{width:200px;background:#1b243c;padding:20px 0;border-radius:0 45px 45px 0;display:flex;flex-direction:column;align-items:center;box-shadow:2px 0 10px rgba(0,0,0,.5);transition:.4s;width:auto;}
         .logo img{width:130px;margin-bottom:10px;cursor:pointer;transition:.4s}
         .search-bar{width:70%;display:flex;justify-content:center;align-items:center;background:rgba(9,8,21,.6);border-radius:50px;font: 'Figtree', sans-serif;padding:5px 10px;box-shadow:0 4px 10px rgba(0,0,0,.2);position:relative;transition:.3s}
@@ -37,23 +37,32 @@
         .sidebar button img{width:100%;height:100%;border-radius:10px;object-fit:cover;}
         .sidebar button:hover{background-color:rgba(0,0,0,.634)}
         .disc-btn {
-            border: none;
-            background: none;
-            padding: 0;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            padding-left: 10px;
-            top: 13px
-        }
+    border: none;
+    background: none;
+    padding: 0;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease, pointer-events 0.3s ease;
+    position: relative;
+    padding-left: 10px;
+    top: 13px;
+}
 
-        .disc-btn img {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
+.disc-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
 
+.disc-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.disc-btn:hover {
+    transform: translateY(-3px);
+}
     </style>
 </head>
 <body>
@@ -78,7 +87,9 @@
             <button class="disc-btn" onclick="window.open('https://discord.gg/CTNeCBKJmv', '_blank')">
                 <img src="https://cdn2.steamgriddb.com/icon_thumb/a0bee49db548813ba2be7ad75a992df2.png" alt="Discord">
             </button>
-            
+            <button class="disc-btn" onclick="window.open('https://github.com/MatthewMason1/glare', '_blank')">
+                <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="Github">
+            </button> 
         </div>
         <div class="game-cards" id="gameCards">
             <div class="game-card" data-title="Slope" data-iframe="https://ug17.github.io/play/Slope/" data-genre="sandbox">
@@ -344,7 +355,7 @@
     <div class="info"><div class="title">Cut the Rope: Time Travel</div><div>Released: 2011</div><div>Author: ZeptoLab</div>
 </div>
 </div>
-<div class="game-card" data-title="Fruit Ninja" data-iframe="https://emulatoros.github.io/gfile/fruitninja/" data-genre="action">
+<div class="game-card" data-title="Fruit Ninja" data-iframe="https://emulatoros.github.io/gfile/fruitninja/" data-genre="skill">
     <div class="library-icon"></div>
     <img src="https://play-lh.googleusercontent.com/iRlGmvtJ524J-gAGdJJchMv-MH-9AuG80TAx8Rv8q3lObiI7kLVZrEvjVOM-yw3BBH4" alt="Fruit Ninja"/>
     <div class="info"><div class="title">Fruit Ninja</div><div>Released: 2010</div><div>Author: Halfbrick Studios</div>
@@ -428,7 +439,7 @@
     <div class="info"><div class="title">Fix-It Felix Jr.</div><div>Released: 1981</div><div>Author: Disney</div>
 </div>
 </div>
-<div class="game-card" data-title="Nip for Speed" data-iframe="https://kdata1.com/2024/02/nip-for-speed/" data-genre="simulation">
+<div class="game-card" data-title="Nip for Speed" data-iframe="https://kdata1.com/2024/02/nip-for-speed/" data-genre="skill">
     <div class="library-icon"></div>
     <img src="https://kbhgames.com/wp-content/uploads/2024/02/Nip-For-Speed.jpg" alt="Nip for Speed"/>
     <div class="info"><div class="title">Nip for Speed</div><div>Released: 2024</div><div>Author: Itch</div>
@@ -480,6 +491,48 @@
     <div class="library-icon"></div>
     <img src="https://cdn2.steamgriddb.com/thumb/1ed33fd0b1d3900c5d71a000969ff4ca.jpg" alt="Pokémon Emerald"/>
     <div class="info"><div class="title">Pokémon Emerald</div><div>Released: 2004</div><div>Author: Game Freak</div>
+</div>
+</div>
+<div class="game-card" data-title="Earthbound" data-iframe="https://f.kbhgames.com/emujs/play.php?c=snes&f=Earthbound%20(U).smc" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/767b14c76c3f708886e005ec17a2dd09.jpg" alt="Earthbound"/>
+    <div class="info"><div class="title">Earthbound</div><div>Released: 1994</div><div>Author: Nintendo</div>
+</div>
+</div>
+<div class="game-card" data-title="Super Mario Bros. 3" data-iframe="https://f.kbhgames.com/emujs/play.php?c=nes&f=supermariobro3.nes" data-genre="retro">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/c52cc42f66f3aadad1b1f9170fbbcf4e.jpg" alt="Super Mario Bros. 3"/>
+    <div class="info"><div class="title">Super Mario Bros. 3</div><div>Released: 1988</div><div>Author: Nintendo</div>
+</div>
+</div>
+<div class="game-card" data-title="New Super Mario Bros." data-iframe="https://static.arcadespot.com/retroemulator.php?system=nds&game=2017/10/new-super-mario-bros.zip" data-genre="platformer">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/988fff1d881114ab5a56f0c0c69e0cfe.jpg" alt="New Super Mario Bros."/>
+    <div class="info"><div class="title">New Super Mario Bros.</div><div>Released: 2006</div><div>Author: Nintendo</div>
+</div>
+</div>
+<div class="game-card" data-title="Grand Theft Auto Advance" data-iframe="https://f.kbhgames.com/emujs/play.php?c=gba&f=grand-theft-auto.gba" data-genre="action">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/c6b3e251ae095d40a4d94feb44567bbe.jpg" alt="Grand Theft Auto Advance"/>
+    <div class="info"><div class="title">Grand Theft Auto Advance</div><div>Released: 2004</div><div>Author: Rockstar Games</div>
+</div>
+</div>
+<div class="game-card" data-title="Grand Theft Auto: Chinatown Wars" data-iframe="https://static.arcadespot.com/retroemulator.php?system=nds&game=2017/10/grand-theft-auto-chinatown-wars.zip" data-genre="action">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/f82050b5624249442a1407d3a4a949f0.jpg" alt="Grand Theft Auto: Chinatown Wars"/>
+    <div class="info"><div class="title">Grand Theft Auto: Chinatown Wars</div><div>Released: 2009</div><div>Author: Rockstar Games</div>
+</div>
+</div>
+<div class="game-card" data-title="Mario Kart 64" data-iframe="https://static.arcadespot.com/retroemulator.php?system=n64&game=2017/06/mario-kart-64.zip" data-genre="racing">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/e5494d23b18b5c822bcaa9fe8fd077bf.jpg" alt="Mario Kart 64"/>
+    <div class="info"><div class="title">Mario Kart 64</div><div>Released: 1996</div><div>Author: Nintendo</div>
+</div>
+</div>
+<div class="game-card" data-title="Super Smash Bros." data-iframe="https://static.arcadespot.com/retroemulator.php?system=n64&game=2017/06/super-smash-bros.zip" data-genre="skill">
+    <div class="library-icon"></div>
+    <img src="https://cdn2.steamgriddb.com/thumb/47a23061d1f09defc9aced3b4e91991d.jpg" alt="Super Smash Bros."/>
+    <div class="info"><div class="title">Super Smash Bros.</div><div>Released: 1999</div><div>Author: Nintendo</div>
 </div>
     </div>
     </div>
@@ -548,21 +601,39 @@ function disableInteractions(disable) {
     searchBar.style.pointerEvents = disable ? 'none' : 'auto';
 }
 
+const discButtons = document.querySelectorAll('.disc-btn');
+
+// Function to toggle visibility of .disc-btn
+function toggleDiscButtons(show) {
+    discButtons.forEach(button => {
+        if (show) {
+            button.classList.remove('hidden');
+        } else {
+            button.classList.add('hidden');
+        }
+    });
+}
+
+// Example usage: Hide .disc-btn when the iframe is shown
 function showIframe(src) {
     iframeContainer.style.display = 'block';
     gameIframe.src = src;
     disableInteractions(true);
     btn1.style.display = 'block';
     btn2.style.display = 'block';
+    toggleDiscButtons(false); // Hide .disc-btn
 }
 
+// Example usage: Show .disc-btn when the iframe is hidden
 function hideIframe() {
     iframeContainer.style.display = 'none';
     gameIframe.src = '';
     disableInteractions(false);
     btn1.style.display = 'none';
     btn2.style.display = 'none';
+    toggleDiscButtons(true); // Show .disc-btn
 }
+
 
 searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase();
