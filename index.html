@@ -36,6 +36,24 @@
         .sidebar button{display:none;background-color:#0d1323;color:white;border:none;width:40px;height:40px;padding: 3.5px;;margin:5px 0;border-radius:10px;cursor:pointer;}
         .sidebar button img{width:100%;height:100%;border-radius:10px;object-fit:cover;}
         .sidebar button:hover{background-color:rgba(0,0,0,.634)}
+        .disc-btn {
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            padding-left: 10px;
+            top: 13px
+        }
+
+        .disc-btn img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
     </style>
 </head>
 <body>
@@ -55,7 +73,11 @@
             <button class="genre-btn" data-genre="simulation">Simulation</button>
             <button class="genre-btn" data-genre="retro">Retro</button>
             <button class="genre-btn" data-genre="utilities">Utilities</button>
+            <button class="genre-btn" data-genre="skill">Skill</button>
             <button class="genre-btn" data-genre="other">Other</button>
+            <button class="disc-btn" onclick="window.open('https://discord.gg/CTNeCBKJmv', '_blank')">
+                <img src="https://cdn2.steamgriddb.com/icon_thumb/a0bee49db548813ba2be7ad75a992df2.png" alt="Discord">
+            </button>
             
         </div>
         <div class="game-cards" id="gameCards">
